@@ -59,8 +59,10 @@ implement to enhance this app, if time permits.
   - [Los Angeles Addresses](https://catalog.data.gov/dataset/addresses-in-the-city-of-los-angeles/resource/cfcd5dce-b96c-43e8-bd36-aac11d14bf7d)
   - [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
   - [Google Maps API](https://developers.google.com/maps/documentation/routes/overview#how_to_use_the_routes_api)
+  - [Ethereal Email](https://ethereal.email)
   - [Github Authentication](https://www.npmjs.com/package/oauth-client-github)
   - [Google Authentication](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid) A detailed guide on how to obtain an API key and perform Google Authentication.
+
 
 #### Styling
 
@@ -86,15 +88,13 @@ implement to enhance this app, if time permits.
   - [ ] Allow residents to cancel the form 
   - [ ] Notify residents that their preferred timeslot is only indicative and that they will receive confirmation a few hours before the scheduled visit.
   - [ ] Store the request status (e.g., pending, visited) using a database of your choice.
-  - [ ] Allow residents have access to cancellation instructions in their confirmation message, providing a contact number (e.g., 1-800-123-4567) and process for canceling an appointment.
+  - [ ] Allow residents to cancel an appointment at anytime.
 
 - Admin Interface
 
 - [ ] Implement a login system accessible through the `/admin` URL.
 - [ ] Authenticate city hall employees via Google or GitHub OAuth securely.
-- [ ] Permit only pre-approved emails (e.g., verified city hall employee emails) to log in.
-- [ ] Implement session management to handle login and logout securely.
-- [ ] Store tokens in a secure storage solution (e.g., HttpOnly cookies).
+- [ ] Permit only pre-approved emails (e.g., verified city hall employees with the role of planner or admin) to log in.
   - Admins should be able to view a paginated or searchable list of all resident requests, including their status, timeslot, and contact information.
   - Admins should have access to resident requests in different views (map and list), each displaying the sequential order of visits.
   - [ ] Provide an option to export the planned visits (regardless of the type of view selected) in a downloadable format (PDF, Excel, etc.) and which will always include details such as visit time slot, resident’s contact information, and address.
