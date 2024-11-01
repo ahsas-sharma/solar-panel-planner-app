@@ -1,4 +1,4 @@
-# voyage-project-tier2-solar-panel-planner
+# voyage-project-tier3-solar-panel-planner
 
 ## Table of Contents
 
@@ -52,13 +52,17 @@ implement to enhance this app, if time permits.
 
 #### Structure
 
-- [ ] This is a purely frontend application. No backend is required.
+- [ ] This is a full-stack application. Frontend and backend are required.
 - [ ] You may use any languages, tools, or libraries you prefer when designing and building this app.
 - [ ] You may **_NOT_** use AI-based solution generators like GitHub Copilot.
 - [ ] Useful links and resources:
   - [Los Angeles Addresses](https://catalog.data.gov/dataset/addresses-in-the-city-of-los-angeles/resource/cfcd5dce-b96c-43e8-bd36-aac11d14bf7d)
   - [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
   - [Google Maps API](https://developers.google.com/maps/documentation/routes/overview#how_to_use_the_routes_api)
+  - [Ethereal Email](https://ethereal.email)
+  - [Github Authentication](https://www.npmjs.com/package/oauth-client-github)
+  - [Google Authentication](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid) A detailed guide on how to obtain an API key and perform Google Authentication.
+
 
 #### Styling
 
@@ -70,7 +74,7 @@ implement to enhance this app, if time permits.
 #### Functionality
 - Overview
 
-  - [ ] Develop a single-page application (SPA) for solar panel application.
+  - [ ] Develop a Fullstack application for solar panel application.
 
 - Resident Interface
 
@@ -79,21 +83,23 @@ implement to enhance this app, if time permits.
     - Email
     - Phone Number
     - Address (validated against a provided dataset of Los Angeles addresses)
-      - The user can either type their own address manually or
-      - Can type the street and then choose from a list of suggested addresses corresponding to the typed street
-      - Implement an autocomplete functionality
+      - Address input supports autocomplete with suggestions based on a partial match against the [Los Angeles dataset](https://catalog.data.gov/dataset/addresses-in-the-city-of-los-angeles/resource/), ensuring correct and existing addresses are used.
     - Preferred timeslot
   - [ ] Allow residents to cancel the form 
   - [ ] Notify residents that their preferred timeslot is only indicative and that they will receive confirmation a few hours before the scheduled visit.
-  - [ ] Store the request status (e.g., pending, visited) using local storage or [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
-  - [ ] Allow residents to cancel an appointment by calling a specific phone number (e.g., 1-800-123-4567) provided in their confirmation message when they submit an appointment application.
+  - [ ] Implement request status tracking (e.g., pending, visited).
+  - [ ] Allow residents to cancel an appointment at anytime.
 
 - Admin Interface
 
-  - [ ] Implement a login system accessible through /admin URL where city hall employees can enter an approved email to access the Admin page (no complex authentication required, emails can be validated against a list in a .env file).
-  - [ ] Display all appointment requests submitted by residents.
-  - [ ] Allow employees to retrieve the most efficient planning for a specified time period (e.g., daily, weekly, etc) by selecting a specific type of output: list view, map view, or both.
-  - [ ] Provide an option to export the planned visits (regardless of the type of view selected) in a downloadable format (PDF, Excel, etc.) and which will always include details such as visit time slot, resident’s contact information, and address.
+- [ ] Implement a login system accessible through the `/admin` URL.
+- [ ] Authenticate city hall employees via Google or GitHub OAuth securely.
+- [ ] Permit only pre-approved emails (e.g., verified city hall employees with the role of `planner` or `admin`) to log in.
+- [ ] Admins should be able to view a list of all resident requests with pagination controls. Each paginated view should display relevant request details, including the request's status, timeslot, and contact information.
+- [ ] Implement a search functionality to allow for quick retrieval of specific resident requests based on teams criteria.
+- [ ] Admins should have access to resident requests in different views (map and list), each displaying the sequential order of visits.
+- [ ] Provide an option to export the planned visits (regardless of the type of view selected) in a downloadable format (PDF, Excel, etc.) and which will always include details such as visit time slot, resident’s contact information, and address.
+- [ ] Implement a "Mark as visited" functionality, to signify that a resident has been visited.
 
   - Algorithmic Planning
 
@@ -103,19 +109,25 @@ implement to enhance this app, if time permits.
     - [ ] The algorithm can be implemented by using a combination of your own logical rules and an external API 
     - [ ] Prioritize efficiency, aiming to minimize travel time between consecutive visits.
     - [ ] Example Simple Algorithm: For adjacent addresses, order them by street name and house number for consecutive visits and attempt to respect the preffered timeslot selected by the resident.
-    
+    - [ ] The planning algorithm should be handled and implemented in the backend.
 
 - Data Management
 
-  - [ ] Use local storage or [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) to temporarily save resident requests.
+  - [ ] Use a database of your choice to store resident requests.
   - [ ] Implement data validation to ensure addresses match the provided dataset from [Los Angeles Addresses](https://catalog.data.gov/dataset/addresses-in-the-city-of-los-angeles/resource/cfcd5dce-b96c-43e8-bd36-aac11d14bf7d).
 
 - User Interface and Experience
-  - [ ] Use responsive design techniques to ensure the application is accessible and functional across various devices and screen sizes.
+
+  - [ ] Use responsive design techniques to ensure the application displays consistently across devices (desktop, tablet, mobile) without layout issues. Form fields and submission buttons are easy to interact with across all device sizes.
+
+- Notifications
+
+  - [ ] Implement a mail SMTP to notify residents by email at the end of the day before the visit, of the timeslot which has been assigned to them.
+  - [ ] Use a mailer mocking tool like Ethereal to simulate sending the email and return a preview link to this mock email.
 
 ### Extras (Not Required)
 - Admin Interface
-  - [ ] Implement a "Mark as visited" functionality, to signify that a resident has been visited.
+  - [ ] Implement multiple authentication system for city hall employees (e.g., Google and GitHub).
 
 ## Acceptance Criteria
 
@@ -123,7 +135,7 @@ implement to enhance this app, if time permits.
 
   - [ ] Users can submit requests with valid addresses, personal details, and timeslots.
   - [ ] Preferred timeslots are submitted but are not guaranteed.
-  - [ ] Requests persist across sessions in local storage or IndexedDB.
+  - [ ] Requests persist across sessions in a database of your choice.
 
 - Admin Interface
 
