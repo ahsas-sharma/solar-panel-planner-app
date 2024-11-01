@@ -92,14 +92,14 @@ implement to enhance this app, if time permits.
 
 - Admin Interface
 
-- [ ] Implement a login system accessible through the `/admin` URL.
-- [ ] Authenticate city hall employees via Google or GitHub OAuth securely.
-- [ ] Permit only pre-approved emails (e.g., verified city hall employees with the role of `planner` or `admin`) to log in.
-- [ ] Admins should be able to view a list of all resident requests with pagination controls. Each paginated view should display relevant request details, including the request's status, timeslot, and contact information.
-- [ ] Implement a search functionality to allow for quick retrieval of specific resident requests based on teams criteria.
-- [ ] Admins should have access to resident requests in different views (map and list), each displaying the sequential order of visits.
-- [ ] Provide an option to export the planned visits (regardless of the type of view selected) in a downloadable format (PDF, Excel, etc.) and which will always include details such as visit time slot, resident’s contact information, and address.
-- [ ] Implement a "Mark as visited" functionality, to signify that a resident has been visited.
+  - [ ] Implement a login system accessible through the `/admin` URL.
+  - [ ] Authenticate city hall employees via Google or GitHub OAuth securely.
+  - [ ] Permit only pre-approved emails (e.g., verified city hall employees with the role of `planner` or `admin`) to log in.
+  - [ ] Admins should be able to view a list of all resident requests with pagination controls. Each paginated view should display relevant request details, including the request's status, timeslot, and contact information.
+  - [ ] Implement a search functionality to allow for quick retrieval of specific resident requests based on teams criteria.
+  - [ ] Admins should have access to resident requests in different views (map and list), each displaying the sequential order of visits.
+  - [ ] Provide an option to export the planned visits (regardless of the type of view selected) in a downloadable format (PDF, Excel, etc.) and which will always include details such as visit time slot, resident’s contact information, and address.
+  - [ ] Implement a "Mark as visited" functionality, to signify that a resident has been visited.
 
   - Algorithmic Planning
 
